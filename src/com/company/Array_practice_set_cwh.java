@@ -6,6 +6,7 @@ public class Array_practice_set_cwh {
     public static void main(String[] args) {
         // Chapter_6_practice_sets
 
+        //Program #1
         // Create an array of 5 floats and calculate their sum
         Scanner scan = new Scanner(System.in);
         /*
@@ -24,8 +25,10 @@ public class Array_practice_set_cwh {
         }
         */
 
+        //Program #2
         //a program to find out whether the integer is present in the array or not
 
+        /*
         int[] randomArray = new int[5];
         for(int i=0; i<5; i++){
             System.out.printf("num %d: ", (i+1));
@@ -44,5 +47,16 @@ public class Array_practice_set_cwh {
         if (num == 0){
             System.out.println("The Array does not contain the number you entered!");
         }
+        */
+
+        // program #3
+        // calculating average from an array of all the marks of physics
+
+        int[] marks = {32, 34, 34, 45, 33, 22, 32}; //A random array
+        int sum = 0;                                //declaration and initialization
+        for (int number: marks){
+            sum += number;
+        }
+        System.out.println("The average marks is: " + sum/marks.length);
     }
 }
