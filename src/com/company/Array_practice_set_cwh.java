@@ -9,6 +9,7 @@ public class Array_practice_set_cwh {
         //Program #1
         // Create an array of 5 floats and calculate their sum
         Scanner scan = new Scanner(System.in);
+
         /*
         float[] fArray = new float[5];
         int sum = 0;
@@ -52,11 +53,27 @@ public class Array_practice_set_cwh {
         // program #3
         // calculating average from an array of all the marks of physics
 
+        /*
+
         int[] marks = {32, 34, 34, 45, 33, 22, 32}; //A random array
         int sum = 0;                                //declaration and initialization
         for (int number: marks){
             sum += number;
         }
         System.out.println("The average marks is: " + sum/marks.length);
+
+        */
+        // a program to add 2 matrices of size 2 X 3
+
+        System.out.println("Enter the rows: ");
+        int rows = scan.nextInt();
+        System.out.println("Enter the columns: ");
+        int columns = scan.nextInt();
+        for (int i=0; i<rows; i++){
+            System.out.printf("Matrix number %d" , i);
+            for (int j=0; j<columns; j++){
+
+           }
+        }
     }
 }
