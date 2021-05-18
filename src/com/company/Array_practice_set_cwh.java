@@ -64,16 +64,40 @@ public class Array_practice_set_cwh {
 
         */
         // a program to add 2 matrices of size 2 X 3
-
-        System.out.println("Enter the rows: ");
+        //first matrix
+        System.out.print("Enter the rows: ");
         int rows = scan.nextInt();
-        System.out.println("Enter the columns: ");
+        System.out.print("Enter the columns: ");
         int columns = scan.nextInt();
+        int[][] matrix1 = new int[rows][columns];
+        System.out.println("Matrix number 1: ");
         for (int i=0; i<rows; i++){
-            System.out.printf("Matrix number %d" , i);
             for (int j=0; j<columns; j++){
-
+                System.out.printf("number [%d,%d] = ",i,j);
+                matrix1[i][j] = scan.nextInt();
            }
+        }
+        // second matrix
+        int[][] matrix2 = new int[rows][columns];
+        System.out.println("Matrix number 2: ");
+        for (int i=0; i<rows; i++){
+            for (int j=0; j<columns; j++){
+                System.out.printf("number [%d,%d] = ",i,j);
+                matrix2[i][j] = scan.nextInt();
+            }
+        }
+        int[][] sum = new int[rows][columns];
+        for (int i=0; i<rows; i++){
+            for (int j=0; j<columns; j++){
+                sum[i][j] = matrix1[i][j] + matrix2[i][j];
+            }
+        }
+        System.out.println("The sum of the matrix is as follows: ");
+        for (int i=0; i<rows; i++){
+            for (int j=0; j<columns; j++){
+                System.out.printf("%d ", sum[i][j]);
+            }
+            System.out.println("\n");
         }
     }
 }
