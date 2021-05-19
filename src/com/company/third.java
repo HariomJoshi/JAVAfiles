@@ -1,7 +1,9 @@
 package com.company;
-
-public class third {
-    public static void main(String[] args) {
-        System.out.println("This is third program and I also don't know why I am making it.");
+public class third{
+    public static void main(String[] args){
+        System.out.println("My name is Hariom joshi");
+        for(int i = 1; i<6; i++){
+            System.out.println("My name is Hariom");
+        }
     }
 }
