@@ -64,6 +64,7 @@ public class Array_practice_set_cwh {
 
         */
         // a program to add 2 matrices of size 2 X 3
+        /*
         //first matrix
         System.out.print("Enter the rows: ");
         int rows = scan.nextInt();
@@ -99,5 +100,6 @@ public class Array_practice_set_cwh {
             }
             System.out.println("\n");
         }
+        */
     }
 }
