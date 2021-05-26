@@ -3,10 +3,12 @@ package com.company;
 import java.util.Scanner;
 
 public class cwh_method_overloading {
-    /*static void telljoke(){
+    /*
+    static void telljoke(){
         System.out.println("Sorry! I have no joke to tell you
          right now! ");
-    }*/
+    }
+    */
 
     //method overloading
 
@@ -29,7 +31,8 @@ public class cwh_method_overloading {
         overloaded(x);
         overloaded(y, x);
 
-        /*System.out.println("The joke will keep running again and again until you order it not to! ");
+        /*
+        System.out.println("The joke will keep running again and again until you order it not to! ");
         System.out.println("/n");
         while(true){
             telljoke();
@@ -42,6 +45,7 @@ public class cwh_method_overloading {
             else{
                 break;
             }
-        }*/
+        }
+        */
     }
 }
