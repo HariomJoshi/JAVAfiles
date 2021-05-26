@@ -13,6 +13,7 @@ public class cwh_method_overloading {
     static void overloaded(){
         System.out.println("Here, the first method with the same name is being executed! ");
     }
+    // same functions with different parameters
     static void overloaded(String a){
         System.out.println("Hello " + a + " dost! kaise ho?");
     }
