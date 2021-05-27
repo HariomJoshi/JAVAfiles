@@ -45,9 +45,29 @@ public class cwh_practice_questions_related_to_java {
     */
 
     // Question 3
-    // function to calculate the sum of first n natural numbers
+    // recursive function to calculate the sum of first n natural numbers
+
+    /*
+    static int sum(int n){
+        int result;
+        if (n == 0){
+            return 0;
+        }
+        else if (n==1){
+            return 1;
+        }
+        else{
+            result = n + sum(n-1);
+            return result;
+        }
+    }
 
     public static void main(String[] args) {
-
+        Scanner scan = new Scanner(System.in);
+        System.out.print("Enter the number of numbers you want sum of: ");
+        int num = scan.nextInt();
+        System.out.printf("The sum of first %d number is: ", num);
+        System.out.println(sum(num));
     }
+    */
 }
