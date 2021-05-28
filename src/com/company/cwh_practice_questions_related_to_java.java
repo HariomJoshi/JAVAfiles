@@ -89,7 +89,7 @@ public class cwh_practice_questions_related_to_java {
         else{
             result = nfib(n-1) + nfib(n-2);
         }
-        return result;
+        retu\rn result;
     }
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
@@ -98,4 +98,52 @@ public class cwh_practice_questions_related_to_java {
         System.out.println(nfib(nterm));
     }
     */
+
+    // question 6
+    // find average of a set of numbers passed as arguments
+
+    /*
+    static int average(int ...arr){
+        int sum = 0;
+        for(int i = 0; i<arr.length; i++){
+            sum += arr[i];
+        }
+        int result = sum/arr.length;
+        return result;
+    }
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        System.out.println("How many number you want to enter? ");
+        int num = scan.nextInt();
+        System.out.println("Enter the number one by one: ");
+        int[] array1 = new int[num];
+        for (int i=1; i<=num; i++){
+            System.out.printf("Number %d: ", i);
+            array1[i-1] = scan.nextInt();
+        }
+        System.out.println("The average of the above numbers is: "+ average(array1));
+    }
+    */
+
+    // question 7
+    // repeat 4 using recursion
+    // we have to form and inverted triangle of stars
+
+    static String triangle(int a){
+        String b = "*";
+        String result;
+            if(a == 1){
+                result =  b;
+            }
+            else{
+                result = b + triangle(a-1);
+            }
+            return result;
+    }
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Enter the length of each side: ");
+        int num = scan.nextInt();
+        System.out.println(triangle(num));
+    }
 }
