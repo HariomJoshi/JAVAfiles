@@ -70,4 +70,32 @@ public class cwh_practice_questions_related_to_java {
         System.out.println(sum(num));
     }
     */
+
+    // Question 4
+    // same as question 2 but the triangle must be opposite, so simply there will be decrementing for loop
+
+    // Question 5
+    // To print the n'th term of Fibonacci sequence using recursion
+
+    /*
+    static int nfib(int n){
+        int result;
+        if (n == 1){
+            result = 0;
+        }
+        else if (n == 2){
+            result = 1;
+        }
+        else{
+            result = nfib(n-1) + nfib(n-2);
+        }
+        return result;
+    }
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Enter the term which you want to know: ");
+        int nterm = scan.nextInt();
+        System.out.println(nfib(nterm));
+    }
+    */
 }
