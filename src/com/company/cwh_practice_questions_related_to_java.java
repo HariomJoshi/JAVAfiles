@@ -130,15 +130,17 @@ public class cwh_practice_questions_related_to_java {
     // we have to form and inverted triangle of stars
 
     static String triangle(int a){
+        // harry has simply used one for loop in this condition
         String b = "*";
         String result;
-            if(a == 1){
-                result =  b;
-            }
-            else{
-                result = b + triangle(a-1);
-            }
-            return result;
+        if(a == 1){
+            // base condition of recursion, if it is not present so the recursion will never terminate so it is very important to add a base condition
+            result =  b;
+        }
+        else{
+            result = b + triangle(a-1);
+        }
+        return result;
     }
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
@@ -147,3 +149,9 @@ public class cwh_practice_questions_related_to_java {
         System.out.println(triangle(num));
     }
 }
+
+// recursive functions are very useful in some conditions when we have to fit a mathematical formula for eg -
+// sum(n) = 1 + 2 + 3 + 4 + 5 + ....... + n
+// sum(n) = 1 + 2 + 3 + 4 + 5 + ....... + (n-1) + n
+// sum(n) = sum(n-1) + n
+// So using this technique it is very easy sometimes to just put something in a particular formula
