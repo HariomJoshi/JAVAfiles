@@ -26,10 +26,54 @@ public class cwh_creating_our_own_class {
         piyush.name = "Piyush Joshi";
         piyush.num = 2;
         piyush.printdetails();
-    }*/
+    }
+}*/
 
-// Question 2
-// creating a class method with methods to print
+// Question 3
+// creating a class square with method to initialize its side, finding area, finding perimeter
 
+/*class square{         // class created
+    int side;             //declaration
+    int area;
+    int perimeter;
+    public int initialize(){       //method to
+        return side = 20;
+    }
+    public int getArea(){           // method to get area
+        return area = side*side;
+    }
+    public int getPerimeter(){         // Method to get perimeter
+        return perimeter = 4* side;
+    }
+}
+public class cwh_creating_our_own_class {
+    public static void main(String[] args) {
+        square number1 = new square();
+        number1.initialize();
+        System.out.println(number1.getArea());
+    }
+}*/
 
+class TommyVacetti{
+    String reaction;
+    public String hit(){
+        reaction = "Hitting";
+        return reaction;
+    }
+    public String run(){
+        reaction = "Running";
+        return reaction;
+    }
+    public String fire(){
+        reaction = "Firing";
+        return reaction;
+    }
+}
+public class cwh_creating_our_own_class {
+    public static void main(String[] args) {
+        TommyVacetti character = new TommyVacetti();
+        System.out.println(character.fire());
+        System.out.println(character.run());
+        System.out.println(character.hit());
+    }
 }
