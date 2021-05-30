@@ -54,8 +54,12 @@ public class cwh_creating_our_own_class {
     }
 }*/
 
+//question 5
+// character tpmmyVacetti and some methods to hit, run and fire
+
+/*
 class TommyVacetti{
-    String reaction;
+    String reaction; // will print null if no value is given to reaction
     public String hit(){
         reaction = "Hitting";
         return reaction;
@@ -77,3 +81,29 @@ public class cwh_creating_our_own_class {
         System.out.println(character.hit());
     }
 }
+*/
+
+// question 6
+// repeat 4 for circle i.e. find area, perimeter etc
+
+/*
+class  circle{
+    int radius;
+    public int findPerimeter(){
+        return 2* (22/7) * radius;
+    }
+    public int findArea(){
+        return (22/7) * radius * radius;
+    }
+}
+public class cwh_creating_our_own_class {
+    public static void main(String[] args) {
+        circle lawn = new circle();
+        lawn.radius = 12;
+        System.out.println(lawn.findPerimeter());
+        System.out.println(lawn.findArea());
+    }
+}
+*/
+
+// completed all the questions, I have not done similar question because i find them not very useful
