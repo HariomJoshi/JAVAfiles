@@ -7,6 +7,8 @@ package com.company;
 
 // practice question
 // make a class circle and set its variables like area and radius and give warning if the area and perimeter is being setted wrongly
+
+/*
 class circle{
     String name;
     private int radius;
@@ -54,3 +56,45 @@ public class cwh_chaper9 {
         ground.setPerimeter(44);          // setting the perimeter
     }
 }
+*/
+
+// constructors in java
+// a member funcion used to initialize an object while creating it
+// it a function with a same name as class in which it is made, so when we instantiate the class so constructor gets invoked automatically
+// constructors can be overloaded
+// a constructor is not a method, if a method returns something it is no longer a constructor
+
+/*
+class thisemployee{
+    String name;
+    int id;
+    public thisemployee(){
+       name = "Hariom Joshi";
+       id = 5740;
+    }
+    public thisemployee(String changed_name, int changed_id){
+        name = changed_name;
+        id = changed_id;
+        // there mustn't be any return statement in constructor
+    }
+    public thisemployee(String changed_name){
+        name = changed_name;
+    }
+    public thisemployee(int changed_id){
+        id = changed_id;
+    }
+    public String getName() {
+        return name;
+    }
+    public int getId() {
+        return id;
+    }
+}
+public class cwh_chaper9 {
+    public static void main(String[] args) {
+        thisemployee hariom = new thisemployee("Piyush Joshi", 4323);
+        System.out.println(hariom.getName());
+        System.out.println(hariom.getId());
+    }
+}
+*/
