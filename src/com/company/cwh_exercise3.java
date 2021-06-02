@@ -28,10 +28,16 @@ class game{
         System.out.println("The number is small, please enter again! ");
     }
 }
+class game2 extends game{    // inheritence example
+
+    public game2(int number) {
+        super(number);
+    }
+}
 public class cwh_exercise3 {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
-        game play = new game(23);
+        game play = new game2(23);
         int j = 0;
         while(j<10){
             play.takeUserInput();
