@@ -46,6 +46,8 @@ public class cwh_inheritence {
 
 // method overriding in JAVA
 
+import org.w3c.dom.ls.LSOutput;
+
 class  class1{
     public int a;
     public static int method1(){
@@ -56,12 +58,21 @@ class  class1{
     }
 }
 class class2 extends class1{
-//    @Override // this annotation is used to make sure that method overriding is going on, it throws an error when method overriding in not going on
+//    @Override    //this annotation is used to make sure that method overriding is going on, it throws an error when method overriding in not going on
 //    public void method2(){
 //        System.out.println("This is the second method of class2: ");
 //    }
     public void method3(){
         System.out.println("This is the third method method: ");
+    }
+}
+class class3 extends class2{
+//    @Override     // proof that the method is overriden
+//    public void method3(){
+//        System.out.println(" This is the overriden method! ");
+//    }
+    public void method4(int a){
+        System.out.println("This is the fourth method! "+ a);
     }
 }
 public class cwh_inheritence {
@@ -71,5 +82,8 @@ public class cwh_inheritence {
         class2 piyush = new class2();
         piyush.method2();
         System.out.println(piyush.method1());
+        class3 mohit = new class3();
+        mohit.method4(23);
+        mohit.method3();
     }
 }

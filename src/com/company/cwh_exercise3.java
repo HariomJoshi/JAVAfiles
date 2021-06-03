@@ -1,6 +1,8 @@
 package com.company;
 
 import java.util.Scanner;
+// one more way to generate random number is
+import java.util.Random;
 
 // create a class game which allow the use to play "Guess the number" game once
 // a number will be stored in the class, and you have to guess it
@@ -10,43 +12,52 @@ import java.util.Scanner;
 // generate variables such as numberOfGuesses etc
 
 class game{
+    // calling a class
+    Random rand = new Random();
+    int number = rand.nextInt(100);   //this method also generates a random number between 0 and 100
+    int num;
     int numberOfGuesses = 10;
     final int fNumber;
-    public game(int number){
+    // int number= (int)(Math.random()*100);
+    public game(){
         fNumber = number;
+        // System.out.println(number);
     }
     public void takeUserInput(){
-        System.out.println("Enter the number: ");
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Enter any number: ");
+        num = scan.nextInt();
     }
     public void isCorrectNumber(){
         System.out.println("Wohoo! you guessed it right ");
     }
     public void isLargerNumber(){
-        System.out.println("The number is larger, please enter again ");
+        System.out.println("The number is larger than the number generated, please enter again ");
     }
     public void isSmallNumber(){
-        System.out.println("The number is small, please enter again! ");
+        System.out.println("The number is smaller than the number generated, please enter again! ");
     }
 }
-class game2 extends game{    // inheritence example
-
-    public game2(int number) {
-        super(number);
-    }
-}
+// this has no link with the exercise it was just with learning point of view
+//class game2 extends game{    // inheritence example
+//    public game2(int number) {
+//        super(number);
+//    }
+//}
 public class cwh_exercise3 {
     public static void main(String[] args) {
+        System.out.println("Let's play the game GUESS THE NUMBER!");
+        System.out.println("");
         Scanner scan = new Scanner(System.in);
-        game play = new game2(23);
+        game play = new game();
         int j = 0;
         while(j<10){
             play.takeUserInput();
-            int num = scan.nextInt();
-            if (num == play.fNumber){
+            if (play.num == play.fNumber){
                 play.isCorrectNumber();
                 break;
             }
-            else if (num > play.fNumber){
+            else if (play.num > play.fNumber){
                 play.isLargerNumber();
             }
             else {
