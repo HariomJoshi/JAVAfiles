@@ -10,7 +10,7 @@ import java.util.Scanner;
 // so such properties would be kept in abstract methods
 
 abstract class four_sided_shapes{
-    // if you don't want to declare this method abstract so simply remove extract method
+    // if you don't want to declare this class abstract so simply remove extract method
     int dimension1;
     int dimension2;
     public four_sided_shapes(int dimension1,int dimension2){
