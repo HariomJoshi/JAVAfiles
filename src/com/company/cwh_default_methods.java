@@ -26,12 +26,27 @@ interface wifi{
         System.out.println("Getting networks");
     }
 }
-class cellPhone{
+// we can also inherit one interface with another
+interface game extends wifi{
+    void getSomeMoreNetworks();
+    void printAnotherMessage();
+}
+class cellPhone implements game{
     void callNumber(long phoneNumber){
         System.out.println("Calling " + phoneNumber);
     }
     void pickCall(long phoneNumber){
         System.out.println("Connecting ...." + phoneNumber);
+    }
+    // the following are the methods which necessarily need to be override.
+    public void getNetworks(){     //method from the interface wifi
+        System.out.println("Networks getting! ");
+    }
+    public void getSomeMoreNetworks(){    // method from the interface game
+        System.out.println("Just print this");
+    }
+    public void printAnotherMessage(){    // method from the interface game
+        System.out.println("This is to be printed");
     }
 }
 class smartPhone extends cellPhone implements camera , wifi{
@@ -44,6 +59,8 @@ class smartPhone extends cellPhone implements camera , wifi{
     public void getNetworks(){
         System.out.println("Your networks are full and better than usual ");
     }
+//    public void getSomeMoreNetworks(){System.out.println("Just print this");}
+//    public void printAnotherMessage(){System.out.println("Just print this");}
 }
 public class cwh_default_methods {
     public static void main(String[] args) {

@@ -11,7 +11,7 @@ import java.util.Random;
 // generate functions such as takeUserInput, isCorrectNumber etc
 // generate variables such as numberOfGuesses etc
 
-class game{
+class game1{
     // calling a class
     Random rand = new Random();
     int number = rand.nextInt(100);   //this method also generates a random number between 0 and 100
@@ -19,7 +19,7 @@ class game{
     int numberOfGuesses = 10;
     final int fNumber;
     // int number= (int)(Math.random()*100);
-    public game(){
+    public game1(){
         fNumber = number;
         // System.out.println(number);
     }
@@ -49,7 +49,7 @@ public class cwh_exercise3 {
         System.out.println("Let's play the game GUESS THE NUMBER!");
         System.out.println("");
         Scanner scan = new Scanner(System.in);
-        game play = new game();
+        game1 play = new game1();
         int j = 0;
         while(j<10){
             play.takeUserInput();
