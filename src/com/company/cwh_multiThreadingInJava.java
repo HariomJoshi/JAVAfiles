@@ -56,38 +56,75 @@ public class cwh_multiThreadingInJava{
 class myThread implements Runnable{
     @Override
     public void run(){
-        System.out.println("Thread one running");
-    }
-}
-class myThread2 extends Thread{
-    @Override
-    public void run(){
-        System.out.println("This is the second thread which has a slightly less priority");
+        int i = 1;
+        while(i<35){
+            System.out.println("Thread one running, max priority! ");
+            i++;
+        }
     }
 }
 class myThread3 implements Runnable{
     @Override
     public void run(){
-        System.out.println("Third thread with minimum priority, it must be executed the least number of times");
+        int i = 1;
+        while (i<35){
+            System.out.println("Third thread with normal priority, it must be executed the least number of times");
+            try {
+                Thread.sleep(455);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            i++;
+        }
+    }
+}
+class myThread2 extends Thread{
+    public myThread2(String name){
+        super(name);
+    }
+    @Override
+    public void run(){
+        int i = 1;
+        while (i<35){
+            System.out.println("This is the second thread which has minimum priority");
+            i++;
+        }
     }
 }
 public class cwh_multiThreadingInJava {
     public static void main(String[] args) {
         myThread obj = new myThread();
         // Thread t1 = new Thread(obj);  // this is an example of Thread(runnable r) type constructor
+
+        // Third thread
+        myThread3 obj3 = new myThread3();
+        Thread t3 = new Thread(obj3, "Hariom's third Thread");
+        t3.setPriority(Thread.NORM_PRIORITY);
+        t3.start();
+        try{
+            t3.join();
+        }
+        catch(Exception e){
+            System.out.println(e);
+        }
+
         // First thread
         Thread t1 = new Thread(obj, "Hariom's Thread");  // this is an example of Thread(runnable r, String name) type constructor
         t1.start();
+        try{
+            t1.join();
+        }
+        catch(Exception e){
+            System.out.println(e);
+        }
         System.out.println(t1.getName());
         t1.setPriority(Thread.MAX_PRIORITY);
-        // second thread
-        myThread2 t2 = new myThread2();
+
+        // Second thread
+        myThread2 t2 = new myThread2("Hariom's Second Thread");
         t2.setPriority(Thread.MAX_PRIORITY);
         t2.start();
-        // Third thread
-        myThread3 obj3 = new myThread3();
-        Thread t3 = new Thread(obj3, "Hariom's Second Thread");
-        t3.setPriority(Thread.NORM_PRIORITY);
-        t3.start();
+
     }
 }
+// we can see from the above function that the thread with max priority is executed more number of times
