@@ -70,14 +70,14 @@ class newException extends Exception{
     }
     @Override
     public String getMessage(){
-        return "You should try entering a different number! ";
+        return "You should try entering a number greater than zero! ";
     }
 }
 class thisThread extends Thread{
     @Override
     public void run(){
         try{
-            Thread.sleep(2000);
+            // Thread.sleep(2000);
             System.out.println("Transfer successful! ");
         }
         catch(Exception e){
@@ -86,6 +86,22 @@ class thisThread extends Thread{
     }
 }
 public class cwh_errorsAndExceptions {
+    public static double perimeter() throws newException{
+        System.out.println("Enter the radius which you want to get perimeter of! ");
+        Scanner scan1 = new Scanner(System.in);
+        int radius = scan1.nextInt();
+        if(radius < 0){
+            try{
+                throw new newException();
+            }
+            catch(Exception e){
+                System.out.println(e.toString());
+                System.out.println(e.getMessage());
+                e.printStackTrace();
+            }
+        }
+        return Math.PI * radius * 2;
+    }
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
 
@@ -106,7 +122,7 @@ public class cwh_errorsAndExceptions {
         thisThread t1 = new thisThread();
         System.out.println("Please Enter any number! ");
         int number = scan.nextInt();
-        if(number < 0){
+         if(number < 0){
             try{
                 throw new newException();
             }
@@ -118,9 +134,19 @@ public class cwh_errorsAndExceptions {
         }
         else{
             System.out.println("Yes you entered it right!, transferring to the database......");
+            t1.start();
+            // surrounding the method (which throws error) by try catch
+            try {
+                System.out.println("The perimeter is " + perimeter());
+            }
+            catch (newException e) {
+                e.printStackTrace();
+            }
         }
-        t1.start();
-
 
     }
 }
+
+// finally block in java
+
+
