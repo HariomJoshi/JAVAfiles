@@ -3,6 +3,7 @@ package com.company;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
 import java.util.Date;
@@ -32,5 +33,10 @@ public class cwh_java_time_API {
         String myTime = time.format(Tf);
         System.out.println("Today, date is "+myDate2);
         System.out.println("And now the time is "+myTime);
+        // trying our random methods
+        System.out.println(Tf.getZone());
+        System.out.println(Tf.getLocale());
+        ZoneId zoneId = ZoneId.of("Asia/Kolkata");
+        System.out.println(Tf.withZone(zoneId));
     }
 }
