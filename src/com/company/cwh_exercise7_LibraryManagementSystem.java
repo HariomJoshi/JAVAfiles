@@ -3,13 +3,15 @@ package com.company;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Scanner;
 
-class functions{
+class arraylists{
     public ArrayList<String> bookName = new ArrayList<>();
     public ArrayList<String> authorName = new ArrayList<>();
     public ArrayList<String> issuedTo = new ArrayList<>();
     public ArrayList<Date> issuedOn = new ArrayList<>();
-    functions(){
+
+    public void initiate(){
         // initiating the bookName list
         bookName.add("Book 1");
         bookName.add("Book 2");
@@ -42,80 +44,89 @@ class functions{
             issuedOn.add(i, null);
         }
     }
-
+}
+class functions{
+    arraylists ar = new arraylists();
     // instantiating the above class
     Calendar calendar = Calendar.getInstance();
     Date date = calendar.getTime();
 
     // to add books
     public void addBooks(String BookName,String BookAuthor){
-        bookName.add(bookName.size(), BookName);
-        authorName.add(bookName.indexOf(BookName), BookAuthor);
-        issuedTo.add(bookName.indexOf(BookName), null);
-        issuedOn.add(bookName.indexOf(BookName), null);
+        ar.bookName.add(BookName);
+        ar.authorName.add(ar.bookName.indexOf(BookName), BookAuthor);
+        ar.issuedTo.add(ar.bookName.indexOf(BookName), null);
+        ar.issuedOn.add(ar.bookName.indexOf(BookName), null);
+        System.out.println("Successfully added to the library! ");
     }
 
-    // check
-    public void noOfAvailableBooks(){
-        System.out.println(bookName.size());
-    }
-
-    // the following function is to remove any book
+    // the following function is to remove any book --> working fine
     public void removeBooks(int index){
-        bookName.remove(index);
-        authorName.remove(index);
-        issuedTo.remove(index);
-        issuedOn.remove(index);
+        ar.bookName.remove(index);
+        ar.authorName.remove(index);
+        ar.issuedTo.remove(index);
+        ar.issuedOn.remove(index);
     }
 
-    // to print currently available books
+    // to print currently available books  --> working fine
     public void printAvailableBooks(){
-        for (int i = 0; i<bookName.size(); i++){
-            System.out.println(bookName.get(i) + " by " + authorName.get(i));
+        for (int i = 0; i<ar.bookName.size(); i++){
+            System.out.printf("%d. %s by %s\n",(i+1),ar.bookName.get(i),ar.authorName.get(i));
         }
     }
 
-    //to issue a book
+    //to issue a book --> working fine
     public void issueBook(int index, String name){
         // trying to solve the problem by if else
-        if (issuedOn.get(index) == null || issuedTo.get(index) == null){
-            issuedOn.add(index, date);
-            issuedTo.add(index, name);
+        if (ar.issuedOn.get(index) == null || ar.issuedTo.get(index) == null){
+            ar.issuedOn.add(index, date);
+            ar.issuedTo.add(index, name);
+            System.out.println("Book issued! ");
         }
         else {
-            System.out.println("Sorry, the book has already been issued to "+ issuedTo.get(index) + " on " + issuedOn.get(index));
+            System.out.println("Sorry, the book has already been issued to "+ ar.issuedTo.get(index) + " on " + ar.issuedOn.get(index));
         }
     }
 
-    //function to return book
-    public void returnBook(String BookName){
+    //function to return book --> working fine
+    public void returnBook(int index){
+        if(ar.issuedOn.get(index) != null || ar.issuedTo.get(index) != null){
+            ar.issuedOn.add(index, null);
+            ar.issuedTo.add(index, null);
+            System.out.println("Book Returned! ");
+        }
+        else{
+            System.out.println("The book was never issued! ");
+        }
 
     }
+
+    // the following function prints the info of the books
     public void printInfo(int index){
         // wrapping with try catch just for protection
         try{
-            System.out.println("The Book is " + bookName.get(index));
+            System.out.println("Book: " + ar.bookName.get(index));
         }
         catch (IndexOutOfBoundsException e){
             System.out.println(e);
         }
         // wrapping with try catch just for protection
         try{
-            System.out.println("The author is " + authorName.get(index));
+            System.out.println("Author: " + ar.authorName.get(index));
         }
         catch (IndexOutOfBoundsException e){
             System.out.println(e);
         }
         // wrapping with try catch to catch the error in case the book has not been issued to anyone yet
         try{
-            System.out.println("The book is issued to" + issuedTo.get(index));
+            System.out.println("Issued to: " + ar.issuedTo.get(index));
         }
         catch (IndexOutOfBoundsException e){
             System.out.println("The book has not been issued to anyone yet! ");
         }
         // wrapping with try catch to catch the error in case the book has not been issued to anyone yet
         try{
-            System.out.println("The book is issued on" + issuedOn.get(index));
+            System.out.println("Issued on: " + ar.issuedOn.get(index));
         }
         catch (IndexOutOfBoundsException e){
             System.out.println("Issued date not available! ");
@@ -124,12 +135,109 @@ class functions{
 }
 
 public class cwh_exercise7_LibraryManagementSystem {
-    public static void main(String[] args) {
+
+    public static void switchCase(){
         functions fn = new functions();
-        fn.addBooks("An Indian Girl", "Chetan Bhagat");
-        fn.addBooks("Wings of fire", "A.P.J. Abdul Kalam");
-        // fn.printInfo(lb.bookName.indexOf("An Indian Girl"));
-        System.out.println(fn.authorName.size());
+        Scanner scan = new Scanner(System.in);
+        int num = scan.nextInt();
+        switch (num) {
+            case 1 -> { // function to add book
+                System.out.print("Book Name: ");
+                String bookName = scan.nextLine();
+                System.out.print("\nBook Author: ");
+                String bookAuthor = scan.nextLine();
+                fn.addBooks(bookName, bookAuthor);
+                fn.printAvailableBooks();
+            }
+            case 2 -> { // function to remove books
+                System.out.println("Following books are currently in the library! ");
+                fn.printAvailableBooks();
+                System.out.println("Which one you want to remove?(Write the number)");
+                int num1 = scan.nextInt();
+                fn.removeBooks((num1 - 1));
+                fn.printAvailableBooks();
+            }
+            case 3 -> { // function to issue book
+                fn.printAvailableBooks();
+                System.out.println("Which one you want to issue?(Enter the number) ");
+                int num2 = scan.nextInt();
+                scan.nextLine();
+                System.out.print("Please enter your name: ");
+                String name = scan.nextLine();
+                fn.issueBook(num2 - 1, name);
+            }
+            case 4 -> { // function to return book
+                fn.printAvailableBooks();
+                System.out.print("Which book you want to return (Enter the Index): ");
+                int num3 = scan.nextInt();
+                fn.returnBook(num3 - 1);
+            }
+            case 5 -> {// function to get info about a particular book
+                fn.printAvailableBooks();
+                System.out.println("Enter the number to get the info: ");
+                int num4 = scan.nextInt();
+                fn.printInfo(num4 - 1);
+            }
+        }
+
+    }
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        arraylists ar = new arraylists();
+        ar.initiate();
+        functions fn = new functions();
+        System.out.println("What do you want to do? \n1. Add Book\n2. Remove Book\n3. Issue Book\n4. Return Book \n5. Want Info");
+        int num = scan.nextInt();
+        scan.nextLine();
+        switch (num) {
+            case 1 -> { // function to add book
+                System.out.print("Book Name: ");
+                String bookName = scan.nextLine();
+                System.out.print("\nBook Author: ");
+                String bookAuthor = scan.nextLine();
+                fn.addBooks(bookName, bookAuthor);
+                fn.printAvailableBooks();
+            }
+            case 2 -> { // function to remove books
+                System.out.println("Following books are currently in the library! ");
+                fn.printAvailableBooks();
+                System.out.println("Which one you want to remove?(Write the number)");
+                int num1 = scan.nextInt();
+                fn.removeBooks((num1 - 1));
+                fn.printAvailableBooks();
+            }
+            case 3 -> { // function to issue book
+                fn.printAvailableBooks();
+                System.out.println("Which one you want to issue?(Enter the number) ");
+                int num2 = scan.nextInt();
+                scan.nextLine();
+                System.out.print("Please enter your name: ");
+                String name = scan.nextLine();
+                fn.issueBook(num2 - 1, name);
+            }
+            case 4 -> { // function to return book
+                fn.printAvailableBooks();
+                System.out.print("Which book you want to return (Enter the Index): ");
+                int num3 = scan.nextInt();
+                fn.returnBook(num3 - 1);
+            }
+            case 5 -> {// function to get info about a particular book
+                fn.printAvailableBooks();
+                System.out.println("Enter the number to get the info: ");
+                int num4 = scan.nextInt();
+                fn.printInfo(num4 - 1);
+            }
+        }
+
+        // if the user wants to do something else, the function is (this is where recursive function is used)
+        System.out.println("Do you want to do something else?\n 1--> yes \n 2--> no");
+        int num4 = scan.nextInt();
+        if (num4 == 1) {
+            System.out.println("What do you want to do? \n1. Add Book\n2. Remove Book\n3. Issue Book\n4. Return Book \n5. Want Info");
+            switchCase();
+        } else {
+            System.out.println("Fine! ending the program...");
+        }
 
     }
 }
