@@ -2,7 +2,10 @@ package com.company;
 
 import java.util.Arrays;
 import java.util.Scanner;
-
+/**
+ * This class is just a practice set of chapter 2
+ * @see <a href=file:///C:/Users/hariom/com/company/Array_practice_set_cwh.html~, target="blank"><I>another practice set</I></a>
+ */
 public class Array_practice_set_pt2 {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
